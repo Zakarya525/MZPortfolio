@@ -1,0 +1,264 @@
+:root {
+   --primary-color: #425b84;
+   --secondary-color: #5b7bb4;
+   --max-width: 1100px;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+body {
+   font: normal 1rem/1.5 'Arial', sans-serif;
+   background: var(--primary-color);
+   color: #fff;
+   overflow-x: hidden;
+}
+
+/* Header */
+
+
+
+#main-header {
+   width: 100%;
+   height: 400px;
+   background: var(--secondary-color);
+   padding: 4rem 0;
+}
+
+#main-header .container {
+   display: grid;
+   grid-template-columns: 1fr 2fr;
+   margin: 0 3rem;
+}
+
+.about {
+   margin-top: 4rem;
+   text-align: center;
+}
+
+.image img {
+   margin-left: 5rem;
+   width: 200px;
+   border-radius: 50%;
+   border: solid 5px #425b84;
+   box-shadow: 10px 10px 20px rgb(7, 37, 37);
+   opacity: 0.7;
+}
+
+#main-header .social {
+   display: flex;
+   margin: 0 4rem;
+   opacity: 0.9;
+}
+
+#main-header .social a {
+   margin-top: 3rem;
+   margin-right: 1rem;
+   color: #fff;
+   text-decoration: none;
+   font-weight: bolder;
+
+}
+
+#main-header .social i {
+
+   margin-right: 0.5rem;
+}
+
+
+h1 {
+   font-size: 2rem;
+}
+
+#timeline ul {
+   padding: 50px 0;
+   background: var(--primary-color);
+}
+
+/* Create a Line */
+#timeline ul li {
+   list-style: none;
+   position: relative;
+   width: 6px;
+   margin: 0 auto;
+   padding-top: 50px;
+   background: #fff;
+}
+
+/* Boxes */
+#timeline ul li div {
+   position: relative;
+   background: var(--secondary-color);
+   width: 400px;
+   padding: 1rem;
+   transition: all 0.5s ease-in-out;
+   visibility: hidden;
+   opacity: 0;
+}
+
+/* Right Side */
+#timeline ul li:nth-child(odd) div {
+   left: 50px;
+   transform: translate(200px, 0);
+}
+
+/* Left Side */
+#timeline ul li:nth-child(even) div {
+   left: -434px;
+   transform: translate(-200px, 0);
+}
+
+/* show boxes */
+#timeline ul li.show div {
+   transform: none;
+   visibility: visible;
+   opacity: 1;
+
+}
+/* Dot for each Div */
+#timeline ul li:after {
+   content: '';
+   position: absolute;
+   left: 50%;
+   bottom: 0;
+   width: 25px;
+   height: 25px;
+   border-radius: 50%;
+   transform: translateX(-50%);
+   background: inherit;
+   transition: background 0.5s ease-in-out;
+
+}
+
+#timeline ul li.show:after {
+   background: var(--secondary-color);
+}
+
+
+/* Arrow Base */
+#timeline div:before {
+   content: '';
+   position: absolute;
+   bottom: 5px;
+   width: 0;
+   height: 0;
+   border-style: solid;
+}
+
+/* Right side Arrows */
+#timeline ul li:nth-child(odd) div:before {
+   left: -15px;
+   border-width: 8px 16px 8px 0;
+   border-color: transparent var(--secondary-color) transparent transparent;
+}
+
+/* Left side Arrows */
+#timeline ul li:nth-child(even) div::before {
+   right: -15px;
+   border-width: 8px 0 8px 16px;
+   border-color: transparent transparent transparent var(--secondary-color);
+}
+
+
+#main-footer p {
+   text-align: center;
+   padding: 1rem 0;
+}
+
+@media(max-width: 900px) {
+   #timeline ul li div {
+      width: 250px;
+   }
+   
+   #timeline ul li:nth-child(even) div {
+      left: -284px;
+   }
+
+   #main-header .image {
+      width: 200px;
+   }
+
+   #main-header .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin: none;
+   }
+
+   #main-header .image img{
+      margin-left: 0;
+   }
+
+   #main-header .about {
+      margin-top: 1rem;
+   }
+   #main-header {
+      height: 500px;
+   }
+
+   #main-header .social {
+      align-items: right;
+      justify-content: right;
+      justify-items: right;
+   }
+}
+
+@media(max-width: 600px) {
+   #timeline ul li {
+      margin-left: 20px;
+   }
+
+   #timeline ul li div {
+      width: calc(100vw - 100px);
+   }
+
+   #timeline ul li:nth-child(even) div {
+      left: 50px;
+   }
+
+   #timeline ul li:nth-child(even) div::before {
+      left: -15px;
+      border-width: 8px 16px 8px 0;
+      border-color: transparent var(--secondary-color) transparent transparent;
+   }
+
+   #main-header .container img {
+      width: 150px;
+   }
+
+   #main-header h1 {
+      font-size: 1.5rem;
+   }
+
+   #main-header h3 {
+      font-size: 1rem;
+   }
+
+   #main-header .image img{
+      margin-left: none;
+   }
+
+   #main-header .about {
+      margin-top: 1rem;
+      margin-right: 1rem;
+   }
+
+   #main-header {
+      height: 450px;
+   }
+
+   #main-header .social {
+      align-items: center;
+      justify-content: center;
+      justify-items: center;
+   }
+
+   #main-header .container {
+      margin: 0;
+   }
+
+}
